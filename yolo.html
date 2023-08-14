@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO</title>
+</head>
+<body>
+   <h1>YOLO</h1> 
+   <h2>Detecção de objetos em tempo real</h2>
+   <h3>YOLO -> VOCÊ SÓ OLHA UMA VEZ!</h3>
+   <p>
+   <strong>FUNCIONAMENTO DO YOLO:</strong> 
+<ol>
+    <li>Ele divide a imagem em grades sxs - muito usada 13 x 13
+        Cada uma dos quadradinhos são responsáveis pela previsão das caixas delimitadoras.(gera as caixas delimitadoras)</li>
+    <li>Após isso, retorna uma pontuação de confiança. Essa pontuação não diz respeito as imagens, e sim 
+        no formato da caixa.</li>
+    <li>Para cada caixa, a célula também faz previsão de uma classe, fornecendo um valor e probabilidade
+        para cada uma das classes possíveis.</li>
+    <li>O valor de confiança para a caixa delimitadora e  a predição da classe são combinados em uma pontuação final.</li>
+    <li>A maioria das caixas terá um valor de confiança extremamente baixo, por isso geralmente são consideradas caixas com pontuação 
+        final seja de 30% ou mais (threshold)</li>
+    <li>Supressão Não- Máxima (NON - MAX-SUPRESSION) - a maioria das células não vai conter um objeto, portanto é necessário obter um valor p <sub>c</sub> 
+    que servirá para remover as caixas com baixa probabilidade de conter um objeto e também caixas que possuem área compartilhada</li>
+    <li>Âncoras (ANCHOR - BOX)-  são retângulos de propoções pré definidos usados para ter maior correspondência entre as caixas delimitadoras previstas e esperadas.
+        Possuem tamanhos iniciais (largura e altura) próximos ao tamanho dos objetos; serão redimensionados para o tamanho do objeto usando saídas da rrede neural.
+        A rede neural não deve prever o tamanho final do objeto, mas apenas ajustar o tamanho da âncora com o tamanho dos objetos
+    </li>
+</ol>
+    
+ <strong>ARQUITETURA YOLO</strong> 
+<br>
+    <img src="C:\Users\satok\OneDrive\Área de Trabalho\desenvolvimento_web\andreia\imagens\WhatsApp Image 2023-08-14 at 15.06.35.jpeg"
+     alt="Arquitetura da Yolo" width="50%">
+ <br>
+
+<strong>DETECTANDO OBJETOS COM YOLO V4</strong>
+<ol>
+    <li>Download do DARKNET</li>
+        <dt>* Podemos usar acelerador de hardware: CPU (none)/ GPU (mais rápido) / TPU</dt>
+        <dd>- será criado uma pasta chamada darknet com seus arquivos</dd>
+    <li>Compilando a Biblioteca</li>
+    <li>Baixando os pesos do modelo pré-treinado</li>
+        <dt>* O Yolo foi pré treinado na base de dados para objetos 'COCO' com 80 tipos de objetos diferentes</dt>
+    <li>Testando o detector</li>
+        <dt>* Em uma pasta chamada 'data/darknet', será utilizado algumas imagens já salvas</dt>
+        <dd>- digitando 'ls', mostra o que tem na pasta atual</dd>
+        <dd>- mostra o tempo utilizado para o processamento e os pesos de certeza dos objetos encontrados</dd>
+    <li>Visualizando o resultado</li>
+        <dt>* Criar uma função para a visualização da imagem que será utilizada posteriormente. </dt>
+        <dd>- importar o OpenCv (cv2) para a leitura da imagem</dd>
+        <dd>- converter o formato BGR do Cv2 para RGB </dd>
+</ol>
+<strong>Suporte GPU / CUDA</strong><br>
+Ir em 'editar' - configurações de notbook - GPU <br>
+Precisa limpar a compilação anterior, e recompilar, pois conectamos o GPU. <br>
+
+<BR></BR>
+<a href="https://colab.research.google.com/drive/1LpwOLonG1nw1lGqzUX-JghrKcjwUsy36" target="_blank">COLAB</a>
+
+
+
+
+   </p>
+
+
+
+
+
+
+
+
+
+<dl>
+
+
+</dl>
+</body>
+</html>
